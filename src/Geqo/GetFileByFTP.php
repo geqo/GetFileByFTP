@@ -97,7 +97,7 @@ class GetFileByFTP
 
         $try = ftp_pasv($this->connection, $this->passive);
 
-        if (!$try) {
+        if (! $try) {
             throw new FTPException('Cannot set passive mode to ' . ($try ? '`true`' : '`false`') . '.');
         }
     }

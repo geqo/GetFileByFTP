@@ -1,8 +1,16 @@
 {
-    "require-dev": {
-        "symfony/var-dumper": "^4.1",
-        "filp/whoops": "^2.2"
-    },
+    "name": "geqo/getfilebyftp",
+    "description": "Get file through ftp",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Alex",
+            "email": "dev@geqo.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
     "autoload": {
         "psr-4": {
             "Geqo\\": "src/Geqo/"
