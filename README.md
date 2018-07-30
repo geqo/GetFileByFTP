@@ -1,6 +1,10 @@
 # GetFileByFTP
 Get file through ftp
-# Usage
+## Installation
+```bash
+composer require geqo/getfilebyftp
+```
+## Usage
 ```php
 $client = new \Geqo\GetFileByFTP($host, $user, $pass, $port);
 $client->setPassive(true);
