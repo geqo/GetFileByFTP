@@ -1,6 +1,7 @@
 {
     "name": "geqo/getfilebyftp",
     "description": "Get file through ftp",
+    "keywords": ["php", "ftp", "file"],
     "type": "library",
     "license": "Apache-2.0",
     "authors": [
@@ -9,8 +10,10 @@
             "email": "dev@geqo.ru"
         }
     ],
+    "require": {
+        "php": ">=7.0"
+    },
     "minimum-stability": "dev",
-    "require": {},
     "autoload": {
         "psr-4": {
             "Geqo\\": "src/Geqo/"
