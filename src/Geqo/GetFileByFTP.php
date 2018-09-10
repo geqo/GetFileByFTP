@@ -83,6 +83,8 @@ class GetFileByFTP
         $this->pass = $pass;
         $this->timeout = $timeout;
 
+	    set_error_handler([$this, 'handleError'], E_WARNING);
+
         $this->connect();
         $this->login();
     }
@@ -151,16 +153,26 @@ class GetFileByFTP
             throw new FTPException('Target directory is not writable');
         }
 
-        set_error_handler(function($errno, $errstr, $errfile, $errline){
-	        throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-        }, E_WARNING);
-
         $result = ftp_get($this->connection, $to, $from, FTP_BINARY);
-
-	    restore_error_handler();
 
         if (! $result) {
             throw new FTPException('File not found or not written.');
         }
+    }
+
+	/**
+	 * I do not know whether to do this correctly, so I did it.
+	 */
+	public function __destruct()
+    {
+	    restore_error_handler();
+    }
+
+	/**
+	 * @throws ErrorException
+	 */
+	protected function handleError($errno, $errstr, $errfile, $errline)
+    {
+	    throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
     }
 }
